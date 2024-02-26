@@ -57,13 +57,13 @@ function SignupForm() {
     dispatch(sendOtp(formData.email, navigate))
 
     // Reset
-    setFormData({
-      firstName: "",
-      lastName: "",
-      email: "",
-      password: "",
-      confirmPassword: "",
-    })
+    // setFormData({
+    //   firstName: "",
+    //   lastName: "",
+    //   email: "",
+    //   password: "",
+    //   confirmPassword: "",
+    // })
     setAccountType(ACCOUNT_TYPE.STUDENT)
   }
 
