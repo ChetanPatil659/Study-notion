@@ -231,7 +231,7 @@ export default function CourseInformationForm() {
           id="courseCategory"
           className="form-style w-full"
         >
-          <option value="" disabled>
+          <option value="category">
             Choose a Category
           </option>
           {!loading &&
@@ -240,9 +240,6 @@ export default function CourseInformationForm() {
                 {category?.name}
               </option>
             ))}
-            <option value="Web Development">
-              Web Development
-            </option>
         </select>
         {errors.courseCategory && (
           <span className="ml-2 text-xs tracking-wide text-pink-200">
