@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react"
-import {TiStarFullOutline, TiStarHalfOutline, TiStarOutline,} from "react-icons/ti"
-   
+import {
+  TiStarFullOutline,
+  TiStarHalfOutline,
+  TiStarOutline,
+} from "react-icons/ti"
 
-function RatingStars({ Review_Count, Star_Size }){
+function RatingStars({ Review_Count, Star_Size }) {
   const [starCount, SetStarCount] = useState({
     full: 0,
     half: 0,
@@ -17,8 +20,6 @@ function RatingStars({ Review_Count, Star_Size }){
       empty: Number.isInteger(Review_Count) ? 5 - wholeStars : 4 - wholeStars,
     })
   }, [Review_Count])
-
-
   return (
     <div className="flex gap-1 text-yellow-100">
       {[...new Array(starCount.full)].map((_, i) => {
@@ -33,6 +34,5 @@ function RatingStars({ Review_Count, Star_Size }){
     </div>
   )
 }
-
 
 export default RatingStars
