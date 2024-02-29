@@ -49,7 +49,7 @@ const {
 const { auth, isInstructor, isStudent, isAdmin } = require("../middleware/auth")
 
 
-router.post("/createCourse", auth, isInstructor, createCourse)
+router.post("/createCourse", createCourse)
 
 router.post("/editCourse", auth, isInstructor, editCourse)
 
