@@ -1,6 +1,5 @@
-
 const BASE_URL = process.env.REACT_APP_BASE_URL || "https://study-notion-9xql-mmmfx0cpi-chetanpatil659.vercel.app/api/v1"
-console.log(BASE_URL)
+
 // AUTH ENDPOINTS
 export const endpoints = {
   SENDOTP_API: BASE_URL + "/auth/sendotp",
@@ -53,7 +52,7 @@ export const ratingsEndpoints = {
 // CATAGORIES API
 export const categories = {
   CATEGORIES_API: BASE_URL + "/course/showAllCategories",
-}
+} 
 
 // CATALOG PAGE DATA
 export const catalogData = {

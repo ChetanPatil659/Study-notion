@@ -5,20 +5,21 @@ import { useNavigate } from "react-router-dom"
 
 import { sidebarLinks } from "../../../data/dashboard-links"
 import { logout } from "../../../services/operations/authAPI"
-import ConfirmationModal from "../../Common/ConfirmationModal"
+import ConfirmationModal from "../../common/ConfirmationModal"
 import SidebarLink from "./SidebarLink"
 
-export default function Sidebar() {
-  const { user, loading: profileLoading } = useSelector(
-    (state) => state.profile
-  )
+
+
+export default function Sidebar(){
+
+  const { user, loading: profileLoading } = useSelector( (state) => state.profile )
   const { loading: authLoading } = useSelector((state) => state.auth)
+
   const dispatch = useDispatch()
   const navigate = useNavigate()
-  // to keep track of confirmation modal
-  const [confirmationModal, setConfirmationModal] = useState(null)
+  const [confirmationModal, setConfirmationModal] = useState(null)               // to keep track of confirmation modal
 
-  if (profileLoading || authLoading) {
+  if(profileLoading || authLoading) {
     return (
       <div className="grid h-[calc(100vh-3.5rem)] min-w-[220px] items-center border-r-[1px] border-r-richblack-700 bg-richblack-800">
         <div className="spinner"></div>
@@ -39,11 +40,9 @@ export default function Sidebar() {
         </div>
         <div className="mx-auto mt-6 mb-6 h-[1px] w-10/12 bg-richblack-700" />
         <div className="flex flex-col">
-          <SidebarLink
-            link={{ name: "Settings", path: "/dashboard/settings" }}
-            iconName="VscSettingsGear"
-          />
-          <button
+          <SidebarLink link={{ name: "Settings", path: "/dashboard/settings" }} iconName="VscSettingsGear" />
+          
+          <button className="px-8 py-2 text-sm font-medium text-richblack-300"
             onClick={() =>
               setConfirmationModal({
                 text1: "Are you sure?",
@@ -54,7 +53,6 @@ export default function Sidebar() {
                 btn2Handler: () => setConfirmationModal(null),
               })
             }
-            className="px-8 py-2 text-sm font-medium text-richblack-300"
           >
             <div className="flex items-center gap-x-2">
               <VscSignOut className="text-lg" />
