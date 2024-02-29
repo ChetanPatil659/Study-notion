@@ -1,5 +1,5 @@
 
-const BASE_URL = "https://study-notion-9xql-mmmfx0cpi-chetanpatil659.vercel.app/api/v1"
+const BASE_URL = "https://study-notion-server-v1.vercel.app/api/v1"
 console.log(BASE_URL)
 // AUTH ENDPOINTS
 export const endpoints = {
