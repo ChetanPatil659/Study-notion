@@ -35,11 +35,13 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build:client": "react-scripts build",
+    "build:server": "cd server && npm run start",
+    "build": "concurrently -n \"client,server\" -c \"bgBlue,bgYellow\" \"npm run build:client\" \"npm run build:server\"",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "server": "cd server && npm run dev",
-    "dev": "concurrently -n \"client,server\" -c \"bgBlue,bgYellow\" \"npm start\" \"npm run server\""
+    "server": "cd server && npm run start",
+    "dev": "concurrently -n \"client,server\" -c \"bgBlue,bgYellow\" \"npm start\" \"cd server && npm run start\""
   },
   "eslintConfig": {
     "extends": [
