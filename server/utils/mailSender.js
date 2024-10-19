@@ -7,12 +7,12 @@ const mailSender = async (email, title, body) => {
     let transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
-          user: 'patilchetan659@gmail.com',
-          pass: 'hyyjwjuxfevjynae'
+          user:  process.env.EMAIL,
+          pass: process.env.PASS
       }
   })
     let info = await transporter.sendMail({
-      from: `"StudyNotion" <${process.env.MAIL_USER}>`,
+      from: `"StudyNotion"`,
       to: `${email}`, 
       subject: `${title}`, 
       html: `${body}`, 

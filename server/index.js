@@ -16,12 +16,23 @@ const dotenv = require("dotenv");
 
 const PORT = process.env.PORT || 4000;
 
+function requestLogger(req, res, next) {
+    console.log("\x1b[36m", "===============================================");
+    console.log("\x1b[33m", `Method: ${req.method}, Route: ${req.originalUrl}`);
+    console.log("\x1b[33m", `Request Body: ${JSON.stringify(req.body)}`);
+    console.log("\x1b[33m", `Query Parameters: ${JSON.stringify(req.query)}`);
+    console.log("\x1b[33m", `Request Headers: ${JSON.stringify(req.headers)}`);
+    console.log("\x1b[36m", "===============================================");
+    next();
+}
+
 
 dotenv.config();
 
 
 database.connect();
- 
+
+app.use(requestLogger);
 app.use(express.json());
 app.use(cookieParser());
 app.use(

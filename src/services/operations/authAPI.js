@@ -53,6 +53,7 @@ export function signUp(
   navigate
 ) {
   return async (dispatch) => {
+    console.log('signup')
     const toastId = toast.loading("Loading...")
     dispatch(setLoading(true))
     try {

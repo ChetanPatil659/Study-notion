@@ -13,6 +13,7 @@ require("dotenv").config()
 exports.signup = async (req, res) => {
   try {
     // Destructure fields from the request body
+    console.log('signuop')
     const {
       firstName,
       lastName,
